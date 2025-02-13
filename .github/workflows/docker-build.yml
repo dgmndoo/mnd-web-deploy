@@ -73,7 +73,7 @@ jobs:
         run: |
           bash -c "$(curl -sSL https://install.mondoo.com/sh)"
 
-      - name: Verify Docker image with cnspec
+      - name: Verify Docker container with cnspec
         run: |
           CONTAINER_SHA=$(docker ps -q | head -n1)
           cnspec scan docker container $CONTAINER_SHA \
