@@ -7,7 +7,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  REPO_NAME: dgmndoo/mnd-challenge
+  REPO_NAME: dgmndoo/mnd-web
 
 jobs:
   build-and-push:
