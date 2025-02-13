@@ -1,9 +1,6 @@
 # Running with Helm
 
 ```bash
-helm install mondoo-web ./mondoo-web/helm
-```
-
-```bash
-helm upgrade mondoo-web ./mondoo-web/helm
+helm install mnd-web ./mnd-web/helm
+helm uninstall mnd-web
 ```
