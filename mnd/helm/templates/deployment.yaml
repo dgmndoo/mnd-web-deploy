@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-mondoo-web
+  name: {{ .Release.Name }}-deploy
   labels:
-    app: mondoo-web
-    {{- include "mondoo-web.labels" . | nindent 4 }}
+    app: mnd-web
+    {{- include "mnd-web.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: mondoo-web
-      {{- include "mondoo-web.selectorLabels" . | nindent 6 }}
+      app: mnd-web
+      {{- include "mnd-web.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: mondoo-web
-        {{- include "mondoo-web.selectorLabels" . | nindent 8 }}
+        app: mnd-web
+        {{- include "mnd-web.selectorLabels" . | nindent 8 }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
