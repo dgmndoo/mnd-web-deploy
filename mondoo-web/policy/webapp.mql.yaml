@@ -1,0 +1,33 @@
+policies:
+  - uid: dg-mondoo-challenge
+    name: DG Mondoo Web Challenge
+    version: 1.0.0
+    authors:
+      - name: Dimitar Ganev
+        email: dganev@pm.me
+    docs:
+      desc: |-
+        This policy checks if the web server is running and if the port is open.
+    groups:
+      - title: Web Server
+        filters: |
+          asset.family.contains('linux')
+        checks:
+          - uid: dg-mondoo-web-server-exists
+          - uid: dg-mondoo-web-server-port-is-open
+    scoring_system: banded
+queries:
+  - uid: dg-mondoo-web-server-exists
+    title: Ensure the web server is existing
+    impact: 100
+    mql: |
+      file("/app/server").exists
+    docs:
+      desc: Ensure the web server is existing
+  - uid: dg-mondoo-web-server-port-is-open
+    title: Ensure the web server port is open
+    impact: 100
+    mql: |
+      ports.listening.any(port == 8080)
+    docs:
+      desc: Ensure the web server port is open
